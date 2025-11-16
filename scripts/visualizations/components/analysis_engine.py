@@ -121,7 +121,7 @@ class TrendAnalysis:
         
         for metric in metrics_to_analyze:
             if metric in pivot_df.columns:
-                values = pivot_df[metric].sort_values(ascending=False)#type:ignore
+                values = pivot_df[metric].sort_values(ascending=False)
                 total = values.sum()
                 
                 if total > 0:
@@ -171,9 +171,9 @@ class TrendAnalysis:
             return {}
         
         # Calcular cuartiles
-        q25 = size_data['valor_indicador'].quantile(0.25) #type:ignore
-        q50 = size_data['valor_indicador'].quantile(0.50)#type:ignore
-        q75 = size_data['valor_indicador'].quantile(0.75)#type:ignore
+        q25 = size_data['valor_indicador'].quantile(0.25)
+        q50 = size_data['valor_indicador'].quantile(0.50)
+        q75 = size_data['valor_indicador'].quantile(0.75)
         
         peer_groups = {
             'Bancos Grandes (Top 25%)': [],
@@ -221,7 +221,7 @@ class TrendAnalysis:
         available_indicators = [ind for ind in key_indicators if ind in pivot_df.columns]
         
         if len(available_indicators) >= 2:
-            correlation_matrix = pivot_df[available_indicators].corr() #type:ignore
+            correlation_matrix = pivot_df[available_indicators].corr()
             return correlation_matrix
         else:
             return pd.DataFrame()
@@ -333,7 +333,7 @@ class AlertRenderer:
         st.markdown("### 🎯 **Análisis de Concentración del Mercado**")
         
         for metric, data in concentration_data.items():
-            with st.expander(f"📊 Concentración: {metric}"):
+            with st.expander(f" Concentración: {metric}"):
                 col1, col2, col3 = st.columns(3)
                 
                 with col1:
